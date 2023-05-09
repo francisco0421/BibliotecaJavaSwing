@@ -4,6 +4,8 @@
  */
 package br.com.senac.biblioteca;
 
+import javax.swing.table.TableModel;
+
 /**
  *
  * @author Aluno TDS
@@ -17,6 +19,12 @@ public class dialogRetirar extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
     }
+           
+    public TableModel initTable(){
+        return new tableLivro(this.dados.getBiblioteca().getLivros());
+    }
+    
+    //Dados dados = new Dados();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -36,6 +44,7 @@ public class dialogRetirar extends javax.swing.JDialog {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},

@@ -6,13 +6,16 @@ package br.com.senac.biblioteca;
 
 import javax.swing.JButton;
 import javax.swing.JTextField;
+import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import javax.swing.table.TableModel;
 
 /**
  *
  * @author Aluno TDS
  */
 public class dialogCatalogo extends javax.swing.JDialog {
+    public Dados dados;
 
     /**
      * Creates new form frameCatalogo
@@ -20,7 +23,22 @@ public class dialogCatalogo extends javax.swing.JDialog {
     public dialogCatalogo(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        this.jTable1.getSelectionModel().addListSelectionListener(new ListSelectionListener);
+        this.jTable1.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
+            @Override
+            public void valueChanged(ListSelectionEvent e) {
+                int index = jTable1.getSelectedRow();
+                if(index >= 0) {
+                    Livro livro = dados.getBiblioteca().getLivros().get(index);
+                    jTextField1.setText(String.valueOf(livro.getId()));
+                    textFieldTitulo.setText(livro.getTitulo());
+                    textFieldAutor.setText(livro.getAutor());
+                }
+            }
+        });
+    }
+    
+    public TableModel initTable(){
+        return new tableLivro(this.dados.getBiblioteca().getLivros());
     }
 
     /**
@@ -43,7 +61,6 @@ public class dialogCatalogo extends javax.swing.JDialog {
         jLabel1 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         buttonDevolver = new javax.swing.JButton();
-        buttonBuscar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -98,8 +115,6 @@ public class dialogCatalogo extends javax.swing.JDialog {
             }
         });
 
-        buttonBuscar.setText("Buscar");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -124,8 +139,6 @@ public class dialogCatalogo extends javax.swing.JDialog {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 532, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(buttonDevolver)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(buttonBuscar)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -149,9 +162,7 @@ public class dialogCatalogo extends javax.swing.JDialog {
                     .addComponent(labelCategoria)
                     .addComponent(textFieldCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonDevolver)
-                    .addComponent(buttonBuscar))
+                .addComponent(buttonDevolver)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -223,7 +234,6 @@ public class dialogCatalogo extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton buttonBuscar;
     private javax.swing.JButton buttonDevolver;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
