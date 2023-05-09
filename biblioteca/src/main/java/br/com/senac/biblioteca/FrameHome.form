@@ -28,7 +28,7 @@
               <Group type="103" groupAlignment="2" attributes="0">
                   <Component id="buttonCatalogo" alignment="2" min="-2" max="-2" attributes="0"/>
                   <Component id="buttonCadastro" alignment="2" max="32767" attributes="0"/>
-                  <Component id="buttonRetirar" alignment="2" max="32767" attributes="0"/>
+                  <Component id="buttonRetirar" alignment="2" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
           </Group>
@@ -39,9 +39,9 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="buttonCatalogo" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-              <Component id="buttonRetirar" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
+              <Component id="buttonRetirar" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
               <Component id="buttonCadastro" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="12" max="32767" attributes="0"/>
           </Group>
@@ -65,7 +65,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCadastroActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JToggleButton" name="buttonRetirar">
+    <Component class="javax.swing.JButton" name="buttonRetirar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Retirar"/>
       </Properties>

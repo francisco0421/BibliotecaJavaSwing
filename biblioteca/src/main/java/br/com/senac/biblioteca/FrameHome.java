@@ -30,7 +30,7 @@ public class FrameHome extends javax.swing.JFrame {
 
         buttonCatalogo = new javax.swing.JButton();
         buttonCadastro = new javax.swing.JButton();
-        buttonRetirar = new javax.swing.JToggleButton();
+        buttonRetirar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -64,7 +64,7 @@ public class FrameHome extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(buttonCatalogo)
                     .addComponent(buttonCadastro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(buttonRetirar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(buttonRetirar))
                 .addGap(65, 65, 65))
         );
         layout.setVerticalGroup(
@@ -72,9 +72,9 @@ public class FrameHome extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(buttonCatalogo)
-                .addGap(4, 4, 4)
-                .addComponent(buttonRetirar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(buttonRetirar)
+                .addGap(4, 4, 4)
                 .addComponent(buttonCadastro)
                 .addContainerGap(12, Short.MAX_VALUE))
         );
@@ -93,9 +93,8 @@ public class FrameHome extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonCadastroActionPerformed
 
     private void buttonRetirarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRetirarActionPerformed
-        //Adicionar o dialog para o retirar!
-        //dialogCadastro dialogCadastro = new dialogCadastro(this,true);
-        //dialogCadastro.setVisible(true);
+        dialogRetirar dialogRetirar = new dialogRetirar(this,true);
+        dialogRetirar.setVisible(true);
     }//GEN-LAST:event_buttonRetirarActionPerformed
 
     /**
@@ -136,6 +135,6 @@ public class FrameHome extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonCadastro;
     private javax.swing.JButton buttonCatalogo;
-    private javax.swing.JToggleButton buttonRetirar;
+    private javax.swing.JButton buttonRetirar;
     // End of variables declaration//GEN-END:variables
 }
